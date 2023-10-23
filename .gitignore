@@ -1,2 +1,4 @@
 .idea
-venv
+ven
+**__pycache__
+db.sqlite3
