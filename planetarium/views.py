@@ -6,6 +6,7 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.viewsets import GenericViewSet
 
 from planetarium.models import ShowTheme, PlanetariumDome, AstronomyShow, ShowSession, Reservation
+from planetarium.permissions import IsAdminOrIfAuthenticatedReadOnly
 
 from planetarium.serializers import (
     ShowThemeSerializer,
@@ -28,7 +29,7 @@ class ShowThemeViewSet(
 ):
     queryset = ShowTheme.objects.all()
     serializer_class = ShowThemeSerializer
-    # permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
+    permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
 
 
 class PlanetariumDomeViewSet(
